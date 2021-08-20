@@ -18,3 +18,5 @@ export const uiConfig = {
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
    ],
 };
+
+export const login = () => {};

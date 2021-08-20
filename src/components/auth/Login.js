@@ -4,7 +4,6 @@ import firebase from 'firebase';
 import { uiConfig, firebaseConfig } from '../../config/firebase';
 
 import './styles.css';
-import Gender from '../gender/Gender';
 import { Redirect } from 'react-router-dom';
 
 const Login = () => {

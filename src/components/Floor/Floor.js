@@ -1,5 +1,5 @@
-import { Redirect, useHistory } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { Redirect } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 import Popup from '../popup/Popup';
 import './styles.css';
@@ -8,7 +8,6 @@ const floorArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const Floor = () => {
    const localUser = JSON.parse(localStorage.getItem('user'));
-   const history = useHistory();
    const [user, setUser] = useState({});
    const [floor, setFloor] = useState(1);
    const [showBookButton, setShowBookButton] = useState(false);

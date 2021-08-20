@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 import './styles.css';
 
