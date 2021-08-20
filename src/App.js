@@ -9,9 +9,8 @@ import Floor from './components/Floor/Floor';
 import Home from './components/Home/home';
 import Navbar from './components/Navbar/Navbar';
 
+const user = JSON.parse(localStorage.getItem('user'));
 const App = () => {
-   const user = JSON.parse(localStorage.getItem('user'));
-
    return (
       <BrowserRouter>
          <Navbar user={user} />

@@ -1,10 +1,13 @@
-import { useMemo } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Home = () => {
-   const user = useMemo(() => {
-      return JSON.parse(localStorage.getItem('user'));
-   }, []);
+   let user = JSON.parse(localStorage.getItem('user'));
+   const history = useHistory();
+
+   if (!user) {
+      history.push('/login');
+      return null;
+   }
 
    return (
       <section className="homeSection">

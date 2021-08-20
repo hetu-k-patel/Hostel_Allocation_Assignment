@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from 'firebase';
-import { uiConfig, firebaseConfig } from '../../config/firebase';
+import { uiConfig, AUTH } from '../../config/firebase';
 
 import './styles.css';
 import { Redirect } from 'react-router-dom';
@@ -10,14 +9,8 @@ const Login = () => {
    const [isSignedIn, setIsSignedIn] = useState(false);
    const [user, setUser] = useState({});
 
-   if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-   } else {
-      firebase.app();
-   }
-
    useEffect(() => {
-      const unregisterAuthObserver = firebase.auth().onAuthStateChanged((authUser) => {
+      const unregisterAuthObserver = AUTH.onAuthStateChanged((authUser) => {
          if (authUser) {
             if (!localStorage.getItem('user')) {
                setUser({
@@ -56,7 +49,7 @@ const Login = () => {
          <div className="login">
             <h1>Hostel Application</h1>
             <p>Please Sign In:</p>
-            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
+            <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={AUTH} />
          </div>
       );
    }

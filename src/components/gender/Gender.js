@@ -12,32 +12,27 @@ const Gender = () => {
       history.push('/hostel');
    };
 
-   if (!localUser) {
-      return <Redirect to="login" />;
-   } else if (localUser['isAllSet']) {
-      return <Redirect to="home" />;
-   } else
-      return (
-         <section className="genderSection">
-            <div className="title">
-               <h1>Choose your Gender</h1>
-            </div>
-            <div className="card-wrapper">
-               <div className="card girl-card" data-gender="girl" onClick={handleCard}>
-                  <div className="icon"></div>
-                  <div className="text">
-                     <strong>Girls Hostels</strong>
-                  </div>
-               </div>
-               <div className="card boy-card" data-gender="boy" onClick={handleCard}>
-                  <div className="icon"></div>
-                  <div className="text">
-                     <strong>Boys Hostels</strong>
-                  </div>
+   return (
+      <section className="genderSection">
+         <div className="title">
+            <h1>Choose your Gender</h1>
+         </div>
+         <div className="card-wrapper">
+            <div className="card girl-card" data-gender="girl" onClick={handleCard}>
+               <div className="icon"></div>
+               <div className="text">
+                  <h2>Girls Hostels</h2>
                </div>
             </div>
-         </section>
-      );
+            <div className="card boy-card" data-gender="boy" onClick={handleCard}>
+               <div className="icon"></div>
+               <div className="text">
+                  <h2>Boys Hostels</h2>
+               </div>
+            </div>
+         </div>
+      </section>
+   );
 };
 
 export default Gender;

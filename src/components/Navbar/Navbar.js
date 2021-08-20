@@ -1,9 +1,17 @@
-import firebase from 'firebase';
+import { AUTH } from '../../config/firebase';
+import { useHistory } from 'react-router-dom';
 
 import './styles.css';
 import Logo from '../../images/logo.png';
 
 const Navbar = ({ user }) => {
+   const history = useHistory();
+
+   const handleSignOut = () => {
+      localStorage.removeItem('user');
+      AUTH.signOut().then(() => (window.location.href = '/login'));
+   };
+
    return (
       <header>
          <div className="logo">
@@ -21,13 +29,7 @@ const Navbar = ({ user }) => {
                />
             </div>
             <div className="logoutButton">
-               <button
-                  onClick={() => {
-                     firebase.auth().signOut();
-                  }}
-               >
-                  Logout
-               </button>
+               {user ? <button onClick={handleSignOut}>Logout</button> : null}
             </div>
          </nav>
       </header>
