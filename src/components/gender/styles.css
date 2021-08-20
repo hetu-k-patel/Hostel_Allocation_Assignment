@@ -1,0 +1,36 @@
+.genderSection {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   height: 100vh;
+}
+
+.genderSection .title {
+   margin-bottom: 100px;
+}
+
+.genderSection .card-wrapper {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.genderSection .girl-card {
+   background-color: darksalmon;
+}
+
+.genderSection .boy-card {
+   background-color: aquamarine;
+}
+
+.genderSection .card {
+   width: 250px;
+   height: 150px;
+   margin: 0 20px;
+   border-radius: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}

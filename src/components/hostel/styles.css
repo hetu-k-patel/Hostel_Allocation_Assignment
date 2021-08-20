@@ -1,0 +1,37 @@
+.hostelSection {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   height: 100vh;
+}
+
+.hostelSection .title {
+   margin-bottom: 80px;
+}
+
+.hostelSection .card-wrapper {
+   display: grid;
+   justify-content: space-between;
+   align-items: center;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 40px;
+}
+
+.hostelSection .girl-card {
+   background-color: darksalmon;
+}
+
+.hostelSection .boy-card {
+   background-color: aquamarine;
+}
+
+.hostelSection .card {
+   width: 100px;
+   height: 100px;
+   border-radius: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}

@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Login from './components/auth/Login';
+import './App.css';
+import Gender from './components/gender/Gender';
+import Hostel from './components/hostel/Hostel';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import Floor from './components/Floor/Floor';
+import Home from './components/Home/home';
+
+const App = () => {
+   const user = JSON.parse(localStorage.getItem('user'));
+
+   return (
+      <BrowserRouter>
+         <Route
+            path="/"
+            exact
+            component={() => (!user ? <Redirect to="/login" /> : <Redirect to="/home" />)}
+         />
+         <Route path="/login" component={Login} />
+         <Route path="/home" component={Home} />
+         <Route path="/gender" component={Gender} />
+         <Route path="/hostel" component={Hostel} />
+         <Route path="/floor" component={Floor} />
+      </BrowserRouter>
+   );
+};
 
 export default App;

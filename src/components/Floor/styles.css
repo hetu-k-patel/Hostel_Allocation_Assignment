@@ -1,0 +1,65 @@
+.floorSection {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 50px;
+}
+
+.floorSection .title,
+.floorSection .floorSelect {
+   margin-bottom: 50px;
+}
+
+.floorSection .floorSelect select {
+   width: 120px;
+   padding: 7px;
+   border-radius: 20px;
+   border: none;
+   background-color: rgb(207, 174, 162);
+   cursor: pointer;
+}
+
+.floorSection .floorSelect select:focus {
+   outline: none;
+   border: none;
+}
+
+.floorSection .card-wrapper {
+   display: grid;
+   justify-content: space-between;
+   align-items: center;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 20px;
+}
+
+.floorSection .book-card {
+   background-color: aquamarine !important;
+}
+
+.floorSection .card {
+   padding: 20px;
+   background-color: darksalmon;
+   margin: 0 20px;
+   border-radius: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+}
+
+.floorSection .bookButton {
+   margin-top: 30px;
+}
+
+.floorSection .bookButton button {
+   width: 140px;
+   padding: 12px;
+   border-radius: 20px;
+   outline: none;
+   border: none;
+   background-color: cyan;
+   font-size: 15px;
+   cursor: pointer;
+   font-weight: bold;
+}
