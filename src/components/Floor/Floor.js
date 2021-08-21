@@ -13,6 +13,10 @@ const Floor = () => {
    const [showBookButton, setShowBookButton] = useState(false);
    const [isOpen, setIsOpen] = useState(false);
 
+   useEffect(() => {
+      setUser(localUser);
+   }, []);
+
    const togglePopup = () => {
       setIsOpen(!isOpen);
    };
@@ -40,9 +44,15 @@ const Floor = () => {
       togglePopup();
    };
 
-   useEffect(() => {
-      setUser(localUser);
-   }, []);
+   if (!!!localUser) {
+      return <Redirect to="/login" />;
+   } else if (localUser['isAllSet']) {
+      return <Redirect to="/home" />;
+   } else if (!localUser['gender']) {
+      return <Redirect to="/gender" />;
+   } else if (!localUser['hostel']) {
+      return <Redirect to="/hostel" />;
+   }
 
    return (
       <section className="floorSection">

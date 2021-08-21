@@ -33,3 +33,7 @@
    align-items: center;
    cursor: pointer;
 }
+
+.icon img {
+   width: 100px;
+}

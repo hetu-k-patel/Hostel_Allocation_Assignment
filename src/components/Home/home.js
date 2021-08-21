@@ -1,31 +1,37 @@
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const Home = () => {
-   let user = JSON.parse(localStorage.getItem('user'));
-   const history = useHistory();
+   let localUser = JSON.parse(localStorage.getItem('user'));
 
-   if (!user) {
-      history.push('/login');
-      return null;
+   if (!!!localUser) {
+      return <Redirect to="/login" />;
+   } else if (!localUser['gender']) {
+      return <Redirect to="/gender" />;
+   } else if (!localUser['hostel']) {
+      return <Redirect to="/hostel" />;
+   } else if (!localUser['floor']) {
+      return <Redirect to="/floor" />;
    }
 
    return (
       <section className="homeSection">
          <div className="box">
-            <h1>Success</h1>
-            <h3>Your room is has been booked successfully.</h3>
+            <h1>Welcome {localUser['displayName']}!</h1>
+            <h3>Your room is has been already booked successfully.</h3>
             <h4>Your room details are as follows:</h4>
             <p>
                Hostel No.{' '}
                <span>
-                  {user['gender'] === 'boy' ? 'B' + user['hostel'] : 'G' + user['hostel']}
+                  {localUser['gender'] === 'boy'
+                     ? 'B' + localUser['hostel']
+                     : 'G' + localUser['hostel']}
                </span>
             </p>
             <p>
-               Floor No. <span>{user['floor']}</span>
+               Floor No. <span>{localUser['floor']}</span>
             </p>
             <p>
-               Room No. <span>{user['room']}</span>
+               Room No. <span>{localUser['room']}</span>
             </p>
          </div>
       </section>

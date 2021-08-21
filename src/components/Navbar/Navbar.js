@@ -1,12 +1,9 @@
 import { AUTH } from '../../config/firebase';
-import { useHistory } from 'react-router-dom';
 
 import './styles.css';
 import Logo from '../../images/logo.png';
 
 const Navbar = ({ user }) => {
-   const history = useHistory();
-
    const handleSignOut = () => {
       localStorage.removeItem('user');
       AUTH.signOut().then(() => (window.location.href = '/login'));

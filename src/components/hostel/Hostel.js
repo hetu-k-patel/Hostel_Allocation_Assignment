@@ -22,6 +22,14 @@ const Hostel = () => {
       history.push('/floor');
    };
 
+   if (!!!localUser) {
+      return <Redirect to="/login" />;
+   } else if (localUser['isAllSet']) {
+      return <Redirect to="/home" />;
+   } else if (!localUser['gender']) {
+      return <Redirect to="/gender" />;
+   }
+
    return (
       <section className="hostelSection">
          <div className="title">

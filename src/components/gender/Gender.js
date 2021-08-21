@@ -6,11 +6,16 @@ const Gender = () => {
    const history = useHistory();
 
    const handleCard = (e) => {
-      const localUser = JSON.parse(localStorage.getItem('user'));
       const newLocalUser = { ...localUser, gender: e.target.dataset['gender'] };
       localStorage.setItem('user', JSON.stringify(newLocalUser));
       history.push('/hostel');
    };
+
+   if (!!!localUser) {
+      return <Redirect to="/login" />;
+   } else if (localUser['isAllSet']) {
+      return <Redirect to="/home" />;
+   }
 
    return (
       <section className="genderSection">
