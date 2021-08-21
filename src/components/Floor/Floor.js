@@ -16,8 +16,8 @@ const Floor = () => {
    useEffect(() => {
       setUser(localUser);
 
-      if (!localUser['hostel']) {
-         return <Redirect to="/hostel" />;
+      if (localUser['isAllSet']) {
+         return <Redirect to="/home" />;
       }
    }, []);
 
