@@ -15,6 +15,10 @@ const Floor = () => {
 
    useEffect(() => {
       setUser(localUser);
+
+      if (!localUser['hostel']) {
+         return <Redirect to="/hostel" />;
+      }
    }, []);
 
    const togglePopup = () => {
@@ -46,8 +50,6 @@ const Floor = () => {
 
    if (!!!localUser) {
       return <Redirect to="/login" />;
-   } else if (localUser['isAllSet']) {
-      return <Redirect to="/home" />;
    } else if (!localUser['gender']) {
       return <Redirect to="/gender" />;
    } else if (!localUser['hostel']) {
